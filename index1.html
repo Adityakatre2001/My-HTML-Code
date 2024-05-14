@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Adding a fallback font */
+            margin: 0; /* Removing default margin */
+            padding: 0; /* Removing default padding */
+        }
+        /* Adding a class to style the heading */
+        .main-heading {
+            text-align: center;
+            text-decoration: underline;
+        }
+        /* Adding a class to style table headings */
+        .table-heading {
+            text-align: left;
+        }
+        /* Adding a class to style the contact information */
+        .contact-info {
+            margin-bottom: 20px; /* Adding some space between contact info and table */
+        }
+        /* Adding a class to style the skill set table */
+        .skills-table {
+            margin-top: 20px; /* Adding some space between tables */
+            border-collapse: collapse; /* Collapsing border-spacing */
+        }
+        .skills-table th, .skills-table td {
+            padding: 8px; /* Adding padding to table cells */
+            border: 1px solid #ddd; /* Adding borders to table cells */
+        }
+        .skills-table th {
+            text-align: left; /* Aligning table headers to left */
+            font-weight: bold; /* Making table headers bold */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main-heading">Resume</h1>
+    <div class="contact-info">
+        <p>Aditya Kumar <br>
+        Royal Heritage <br>
+        Vaishnav Devi Mandir<br>
+        Akurdi, Pune 411035<br>
+        Mobile No: 9999955555 <br>
+        adityakumar@gmail.com</p>
+    </div>
+    <hr>
+    <b>Educational Qualifications:</b>
+    <table cellpadding="5" cellspacing="0" class="skills-table">
+        <tr>
+            <th class="table-heading">Qualifications</th>
+            <th class="table-heading">Institute</th>
+            <th class="table-heading">University/Board</th>
+            <th class="table-heading">Marks (%)</th>
+            <th class="table-heading">Year of Passing</th>
+        </tr>
+        <tr>
+            <td>BE (IT)</td>
+            <td>DYPCOE Akurdi</td>
+            <td>SPPU</td>
+            <td>75%</td>
+            <td>2024</td>
+        </tr>
+        <tr>
+            <td>HSC</td>
+            <td>Adarsh Jr College</td>
+            <td>MSBSHSE</td>
+            <td>85%</td>
+            <td>2019</td>
+        </tr>
+        <tr>
+            <td>SSC</td>
+            <td>R R High School</td>
+            <td>MSBSHSE</td>
+            <td>95%</td>
+            <td>2017</td>
+        </tr>
+    </table>
+
+    <br>
+    <b>Skills Set:</b>
+    <table class="skills-table">
+        <tr>
+            <th class="table-heading">Operating System:</th>
+            <td>Linux Ubuntu</td>
+        </tr>
+        <tr>
+            <th class="table-heading">Programming Language:</th>
+            <td>C, C++, Java, .Net</td>
+        </tr>
+        <tr>
+            <th class="table-heading">Front End:</th>
+            <td>React.js, Angular</td>
+        </tr>
+        <tr>
+            <th class="table-heading">DBMS:</th>
+            <td>MySQL, Oracle</td>
+        </tr>
+    </table>
+</body>
+</html>
