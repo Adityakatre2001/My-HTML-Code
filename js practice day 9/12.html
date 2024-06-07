@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        var arr=[{pid : 1,pname:"lays",qty:30 },
+        {pid : 2,pname:"mango",qty:30 },
+        {pid : 3,pname:"maggi",qty:30 },
+        {pid : 4,pname:"biscuit",qty:30 },
+        {pid : 5, pname:"pringles",qty:50}]
+        var searcharr=[...arr];
+
+        //display  Table
+        function displayTable(){
+
+            var str="<table border='2'><tr><th>Product Id</th><th>Prduct Name</th><th>Product Qty</th></tr>"
+            for(var p of searcharr) {
+                str+=`<tr><td>${p.pid}</td><td>${p.pname}</td><td>${p.qty}</td></tr>`
+            }
+            str+="</table>"
+            $('#mydiv').html(str)
+        }
+        $(document).ready(function(){
+            displayTable()
+            $('#search').keyup(function(){
+                var v = $('#search').val();
+                var ch = $('#choice option:selected').val();
+                
+                switch(ch){
+                    case "pid":
+                        if(v!==""){
+                            var v = parseInt(v)
+                            searcharr=arr.filter(ob=>ob.pid===v)
+                        }
+                        break;
+                    case "pname":
+                        if(v!==""){
+                            searcharr=arr.filter(ob=>ob.pname.includes(v))
+                        }else{
+                            searcharr=[...arr]
+                        }
+                        break;
+                    case "qty":
+                        if(v!==""){
+                            var v = parseInt(v)
+                            searcharr=arr.filter(ob=>ob.qty===v)
+                        }else{
+                            searcharr=[...arr]
+                        }
+                        break;
+
+                }displayTable();
+            })
+        })
+
+    </script>
+
+</head>
+<body style="background-color:cornflowerblue">
+    <!-- Search : <input type="text" name="search" id="search">
+    <select id="choice">
+        <option value="pid">pid</option>
+        <option value="pname">pname</option>
+        <option value="qty">qty</option>
+    </select>
+    <div id="mydiv"></div> -->
+
+
+
+    Search : <input type="text" name="search" id="search">
+    <select id="choice">
+        <option value="pid">pid</option>
+        <option value="pname">pname</option>
+        <option value="qty">qty</option>
+    </select>
+    <br><br>
+    <div id="mydiv"></div>
+</body>
+</html>

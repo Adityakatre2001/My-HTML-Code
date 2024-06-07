@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        #mydiv {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px; /* Set width as needed */
+    height: 100%; /* Set height as needed */
+    background-color: #f0f0f0; /* Set background color */
+    /* Add any other styling as needed */
+}   </style> -->
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        var arr=[{pid : 1,pname:"lays",qty:30 },
+        {pid : 2,pname:"mango",qty:30 },{pid : 3,pname:"maggi",qty:30 },{pid : 4,pname:"biscuit",qty:30 }]
+
+        function clearForm(){
+                 $('#pid').val("")
+                 $('#pname').val("")
+                 $('#qty').val("")
+        }
+
+
+
+
+
+            //display table
+        function displayTable(){
+            var str="<table border='2'> <tr><th>Product Id </th><th>Product Name</th><th>Qty</th></tr>"
+                for(var p of arr){
+                    str+=`<tr><td>${p.pid}</td><td>${p.pname}</td><td>${p.qty}</td></tr>`
+
+                }
+                str+="</table>"
+                $('#mydiv').html(str)
+        }
+        $(document).ready(function(){
+            displayTable()
+            //adding new product in the array
+            $("#delete").click(function(){
+                var pid=parseInt($('#pid').val())
+                var pos = arr.findIndex(ob=>ob.pid===pid)
+                if(pos!==-1){
+                    arr.splice(pos,1)
+                }
+                displayTable()
+                clearForm()
+                $('#pid').focus()
+
+            })
+                // delete ptoduct from the array
+            $("#add").click(function(){
+                var pid=parseInt($('#pid').val())
+                var pname=$('#pname').val()
+                var qty=parseInt($('#qty').val())
+                // var p={pid:pid,pname:pname,qty:qty} //both bellow line are same
+                var p = {pid,pname,qty}
+                arr.push(p)
+                displayTable()
+                clearForm()
+                $('#pid').focus()
+
+            })
+
+
+
+            //  //adding a new product in the array
+            //  $("#add").click(function(){
+            //     var pid=parseInt($('#pid').val())
+            //     var pname=$('#pname').val()
+            //     var qty=parseInt($('#qty').val())
+            //     //var p={pid:pid,pname:pname,qty:qty}
+            //     var p={pid,pname,qty}
+            //     arr.push(p)
+            //     displayTable()
+            //     clearForm()
+            //     $('#pid').focus()
+
+
+            // }) 
+
+
+            // $("#update").click(function(){
+            //     var pid=parseInt($('#pid').val());
+            //     var pos = arr.findIndex(ob=>ob.pid===pid);
+            //     if(pos!==-1){
+
+
+            //         arr[pos].pname=$('#pname').val();
+            //         arr[pos].qty=$('#qty').val();
+                
+            //     displayTable()
+            //     clearForm()
+            //     $('#pid').focus() }else{
+            //         alert("Product Not Found with given Id : " + pid);
+            //     }
+
+
+
+
+            $("#update").click(function(){
+
+                var pid = parseInt($('#pid').val());
+                var pos = arr.findIndex(ob=>ob.pid===pid);
+
+                if(pos!==-1){
+                    arr[pos].pname=$('#pname').val();
+                    arr[pos].qty=parseInt($('#qty').val());
+                    displayTable();
+                    clearForm();
+                    $('#pid').focus()}
+                    else{
+                            alert("product not found with given id : " + pid);
+                    }
+                
+            
+
+
+
+
+            })
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+        })
+
+    </script>
+</head>
+<body style="background-color: darkcyan;">
+    <div>
+    <form>
+        <table>
+            <tr>
+                <td>Product id:</td>
+                <td><input type="text" name="pid" id="pid"></td>
+            </tr>
+            <tr>
+                <td>Product pname:</td>
+                <td><input type="text" name="pname" id="pname"></td>
+            </tr>
+            <tr>
+                <td>Product qty:</td>
+                <td><input type="text" name="qty" id="qty"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button" name="add" id="add">Add Product</button>
+                    <button type="button" name="delete" id="delete">Delete Product</button>
+                    <button type="button" name="update" id="update">Update Product</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+   
+    <div id="mydiv"></div> </div>
+</body>
+</html>

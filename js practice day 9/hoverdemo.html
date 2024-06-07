@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .myclass{
+             /* display: none; 
+            background-color: pink; */
+        }
+        .myc{
+            background-color: red;
+
+
+
+            div{
+                background-color: yellow;
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        // $(document).ready(function(){
+        //     $('h1').hover(function()){
+        //         $('div').addClass('myc');
+        //         $
+        //     }
+        // },function(){})
+
+
+
+        $('h1').hover(function(){
+            console.log("In single function of hover")
+            // function chaining
+            $('div').toggleClass('myclass')
+            toggleClass('myc');
+        })
+    </script>
+</head>
+<body>
+    <h1>Hello world</h1>
+    <p class="myc">This is p</p>
+    
+    <div class="myclass">
+    <p>This is p1</p>
+    <p>Thsi is p2</p>
+    <p>This is p3</p>
+    <p>This is p3</p>
+    <p>This is p3</p>
+
+    </div>
+
+</body>
+</html>
